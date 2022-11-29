@@ -3,8 +3,8 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
   datasource:
-    url: jdbc:mysql://${ip}:3306/health?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul&characterSetResults=UTF-8&characterEncoding=UTF-8
-    username: root
+    url: jdbc:mysql://${ip}:3306/health_diary_db?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul&characterSetResults=UTF-8&characterEncoding=UTF-8
+    username: admin
     password: p39pwt12!
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
@@ -22,6 +22,8 @@ spring:
       ddl-auto: update
 
 ## local
-ip: localhost
+#ip: localhost
 
+## rds
+ip : database-1.cbf0o2hsjj7u.ap-northeast-2.rds.amazonaws.com
 
