@@ -7,6 +7,6 @@ import lombok.Getter;
 public class DiaryDto {
     private String appendixMemo;
     private String conditions;
-    private String feeling;
-    private String pain;
+    private String headache;
+    private String waistPain;
 }
