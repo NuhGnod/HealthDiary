@@ -35,13 +35,13 @@ public class UserController {
     }
 
     @PostMapping("/note")
-    public ResponseEntity<Void> note(@RequestBody DiaryDto dto, HttpServletRequest request) {
-        userService.note(dto, request);
+    public ResponseEntity<Void> note(@RequestBody DiaryDto dto, HttpServletRequest request, HttpServletResponse response) {
+        userService.note(dto, request, response);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping("/diarys")
-    public ResponseEntity<List<Diary>> inquire(HttpServletRequest request) {
-        return ResponseEntity.ok(userService.getDiaryList(request));
+    public ResponseEntity<List<Diary>> inquire(HttpServletRequest request, HttpServletResponse response) {
+        return ResponseEntity.ok(userService.getDiaryList(request, response));
     }
 }

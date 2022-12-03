@@ -69,11 +69,11 @@ public class UserService {
 
     }
 
-    public void note(DiaryDto dto, HttpServletRequest request) {
+    public void note(DiaryDto dto, HttpServletRequest request, HttpServletResponse response) {
 
     }
 
-    public List<Diary> getDiaryList(HttpServletRequest request) {
+    public List<Diary> getDiaryList(HttpServletRequest request, HttpServletResponse response) {
         return Collections.emptyList();
     }
 }
