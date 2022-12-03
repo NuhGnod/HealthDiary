@@ -10,9 +10,9 @@
     ````
     {
         "id" : String,
-        "name" : String,
+        "name" : "",
         "password" : String,
-        "email" : String
+        "email" : ""
     }
    
 ---
@@ -23,7 +23,7 @@
   ````
   {
     "id" : String,
-  "password" : String,
+    "password" : String,
   }
   ````
 ---
@@ -35,8 +35,8 @@
   {
     "appendixMemo" : String,
     "conditions" : String,
-    "feeling" : String,
-    "pain" : String
+    "waistPain" : String,
+    "headache" : String
   }
   
   ````

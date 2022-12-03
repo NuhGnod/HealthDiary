@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
@@ -22,8 +23,8 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping("/signin")
-    public ResponseEntity<Void> signIn(@RequestBody SignInDto dto, HttpServletRequest request) {
-        userService.signIn(dto, request);
+    public ResponseEntity<Void> signIn(@RequestBody SignInDto dto, HttpServletRequest request, HttpServletResponse response) {
+        userService.signIn(dto, request, response);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
@@ -34,13 +35,13 @@ public class UserController {
     }
 
     @PostMapping("/note")
-    public ResponseEntity<Void> note(@RequestBody DiaryDto dto, HttpServletRequest request) {
-        userService.note(dto, request);
+    public ResponseEntity<Void> note(@RequestBody DiaryDto dto, HttpServletRequest request, HttpServletResponse response) {
+        userService.note(dto, request, response);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @GetMapping("/diarys")
-    public ResponseEntity<List<Diary>> inquire(HttpServletRequest request) {
-        return ResponseEntity.ok(userService.getDiaryList(request));
+    public ResponseEntity<List<Diary>> inquire(HttpServletRequest request, HttpServletResponse response) {
+        return ResponseEntity.ok(userService.getDiaryList(request, response));
     }
 }
