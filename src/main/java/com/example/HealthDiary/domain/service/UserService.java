@@ -11,7 +11,9 @@ import com.example.HealthDiary.global.error.exception.UserException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.Collections;
 import java.util.List;
@@ -23,7 +25,7 @@ import static com.example.HealthDiary.global.constant.SessionConstant.SESSION_ID
 @RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
-    public void signIn(SignInDto dto, HttpServletRequest request) {
+    public void signIn(SignInDto dto, HttpServletRequest request, HttpServletResponse response) {
 
         Optional<User> existUser = userRepository.findById(dto.getId());
         if (existUser.isPresent()) {
@@ -35,6 +37,10 @@ public class UserService {
                 HttpSession session = request.getSession();
                 session.setAttribute(SESSION_ID, user.getId());
 
+//                session.
+                Cookie cookie = new Cookie(SESSION_ID, session.getAttribute(SESSION_ID).toString());
+                System.out.println("cookie = " + cookie);
+                response.addCookie(cookie);
             }
             else {
                 throw new UserException("패스워드가 잘못되었습니다.", ErrorCode.INVALID_USER_PASSWORD);
