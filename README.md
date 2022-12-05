@@ -33,6 +33,7 @@
   - request body :
   ````
   {
+    "userId" : String,
     "appendixMemo" : String,
     "conditions" : String,
     "waistPain" : String,
