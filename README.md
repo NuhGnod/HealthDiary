@@ -60,3 +60,37 @@
   }
   
   ````
+---
+- 유저리스트
+  - request
+    - type : GET
+    - url : /admin
+    
+
+  - response
+    - Response Body {Status = 200}
+    ````
+    {
+          [
+              {
+                  "id" : String,
+                  "password" : String,
+              }
+              ,
+          ]
+      }
+    ````
+---
+- 유저 삭제
+  - request
+    - type : PUT
+    - url : /admin/users
+    - body:
+      ````
+      {
+        "userId" : String
+      }
+      ````
+  - response
+    - response body {Status = 204}
+    
