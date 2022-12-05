@@ -20,6 +20,7 @@ public enum ErrorCode {
     INVALID_USER_ID(401, "U4012", "User id is invalid"),
     INVALID_USER_PASSWORD(401, "U4013", "password is invalid"),
     DUPLICATED_USER_ID(401,"U4014", "duplicated id"),
+    USER_IS_NOT(401,"U4015","user is not exist")
     ;
     private final String code;
     private final String message;
