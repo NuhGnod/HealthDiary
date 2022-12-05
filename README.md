@@ -33,6 +33,7 @@
   - request body :
   ````
   {
+    "userId" : String,
     "appendixMemo" : String,
     "conditions" : String,
     "waistPain" : String,
@@ -51,11 +52,11 @@
 ---
 - 내 기록 일지 보기
   - type : GET
-  - url : /users/diarys
-  - request header :
+  - url : /users/diarys{userId}
+  - request parameter :
   ````
   {
-    session_id : string
+    userId : string
   }
   
   ````
