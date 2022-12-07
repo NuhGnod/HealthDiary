@@ -20,13 +20,14 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Diary {
-//    @Id
+    @Id
+    private String diaryId;
     private String userId;
 
     private String conditions;
     private String headache;
     private String waistPain;
-    @Id
+//    @Id
     private Timestamp date;
 
 

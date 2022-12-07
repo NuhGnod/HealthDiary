@@ -111,18 +111,19 @@ public class UserService {
 //        String id = (String) session.getAttribute(SESSION_ID);
         String id = dto.getUserId();
 
-        String dateFormat = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        System.out.println("dateFormat = " + dateFormat);
+        String dateFormat = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd 09:00:00"));
+//        System.out.println("dateFormat = " + dateFormat);
         java.sql.Timestamp compareTime = Timestamp.valueOf(dateFormat);
-        System.out.println("compareTime = " + compareTime);
-
-        System.out.println("id = " + id);
-
+//        System.out.println("compareTime = " + compareTime);
+//        compareTime.
+//        System.out.println("id = " + id);
+        String diaryId = id + "#" + dateFormat;
         diaryRepository.save(
-                Diary.builder()
+                Diary.builder().diaryId(diaryId)
                         .userId(id)
                         .appendixMemo(dto.getAppendixMemo())
                         .conditions(dto.getConditions())
+//                        .appendixMemo(dateFormat)
                         .waistPain(dto.getWaistPain())
                         .headache(dto.getHeadache())
                         .date(compareTime)
