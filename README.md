@@ -46,7 +46,7 @@
 ---
 - 내 기록 일지 보기
   - type : GET
-  - url : /users/diarys{userId}
+  - url : /users/diarys?userId={userId}
   - request parameter :
   ````
   {
