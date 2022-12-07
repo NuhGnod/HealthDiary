@@ -49,9 +49,9 @@ public class UserService {
                 User user = existUser.get();
                 System.out.println("user = " + user);
                 //세션 유지
-                HttpSession session = request.getSession();
-                session.setAttribute(SESSION_ID, user.getId());
-                System.out.println("session = " + session.getAttribute(SESSION_ID));
+//                HttpSession session = request.getSession();
+//                session.setAttribute(SESSION_ID, user.getId());
+//                System.out.println("session = " + session.getAttribute(SESSION_ID));
                 //                session.
 //                CookieGenerator cookie = new CookieGenerator();
 //                cookie.setCookieName(SESSION_ID);
@@ -60,19 +60,19 @@ public class UserService {
 //                System.out.println("cookie = " + cookie);
 //                cookie.setCookieHttpOnly(false);
 //                cookie.setCookiePath("/");
-                String id = session.getAttribute(SESSION_ID).toString();
-                Cookie cookie = new Cookie(SESSION_ID, session.getAttribute(SESSION_ID).toString());
-                cookie.setPath("/");
-                cookie.setDomain("54.180.217.214");
-                cookie.setHttpOnly(false);
+//                String id = session.getAttribute(SESSION_ID).toString();
+//                Cookie cookie = new Cookie(SESSION_ID, session.getAttribute(SESSION_ID).toString());
+//                cookie.setPath("/");
+//                cookie.setDomain("54.180.217.214");
+//                cookie.setHttpOnly(false);
 
-                ResponseCookie cookie1 = ResponseCookie.from(SESSION_ID, id).path("/")
-                        .sameSite("None")
-                        .httpOnly(false)
-                        .secure(true)
-                        .build();
-
-                response.addHeader("Set-Cookie",cookie1.toString());
+//                ResponseCookie cookie1 = ResponseCookie.from(SESSION_ID, id).path("/")
+//                        .sameSite("None")
+//                        .httpOnly(false)
+//                        .secure(true)
+//                        .build();
+//
+//                response.addHeader("Set-Cookie",cookie1.toString());
 
             } else {
                 throw new UserException("패스워드가 잘못되었습니다.", ErrorCode.INVALID_USER_PASSWORD);
