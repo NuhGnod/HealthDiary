@@ -41,13 +41,7 @@
   }
   
   ````
-- request header :
-    ````
-    {
-        session_id : String
-    }
-    
-    ````
+
 
 ---
 - 내 기록 일지 보기
