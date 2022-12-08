@@ -9,8 +9,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,7 +21,9 @@ public class AdminService {
     @Transactional
     public List<User> getUsers() {
         List<User> all = userRepository.findAll();
-        return all;
+        System.out.println("all = " + all);
+        List<User> users = all.stream().filter(user -> !user.getId().equals("admin")).collect(Collectors.toList());
+        return users;
     }
     @Transactional
     public void deleteUser(UserDto dto) {
